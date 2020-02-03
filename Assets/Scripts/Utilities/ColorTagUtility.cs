@@ -9,7 +9,7 @@ namespace LTD.Utilities
 {
     public static class ColorTagUtility
     {
-        private static StringBuilder stringBuilder = new StringBuilder(3);
+        private static StringBuilder stringBuilder = new StringBuilder(7);
 
         public static string AddColorTag(Color color, string tag)
         {
@@ -46,9 +46,9 @@ namespace LTD.Utilities
 
         private static void GetColorHexString(ref StringBuilder stringBuilder, Color color)
         {
-            stringBuilder.Append(((int) (color.r * 255)).ToString("X02"));
-            stringBuilder.Append(((int) (color.g * 255)).ToString("X02"));
-            stringBuilder.Append(((int) (color.b * 255)).ToString("X02"));
+            stringBuilder.Append(((int) (color.r * byte.MaxValue)).ToString("X02"));
+            stringBuilder.Append(((int) (color.g * byte.MaxValue)).ToString("X02"));
+            stringBuilder.Append(((int) (color.b * byte.MaxValue)).ToString("X02"));
         }
     }
 }
