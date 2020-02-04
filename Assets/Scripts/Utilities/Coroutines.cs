@@ -1,48 +1,51 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class Coroutines
+namespace LTD.Utilities
 {
-    private static CoroutineInstance _instance;
-    public static CoroutineInstance instance
+    public class Coroutines
     {
-        get
+        private static CoroutineInstance _instance;
+        public static CoroutineInstance instance
         {
-            if (_instance == null)
+            get
             {
-                _instance = new GameObject("_coroutines").AddComponent<CoroutineInstance>();
+                if (_instance == null)
+                {
+                    _instance = new GameObject("_coroutines").AddComponent<CoroutineInstance>();
 
-                DontDestroy();
+                    DontDestroy();
+                }
+
+                return _instance;
             }
-
-            return _instance;
         }
-    }
 
-    public static void Clear()
-    {
-        Debug.Log("Routiner Clear");
-
-        if (_instance == null) return;
-        Object.Destroy(_instance.gameObject);
-        _instance = null;
-    }
-
-    private static void DontDestroy()
-    {
-        if (Application.isPlaying)
+        public static void Clear()
         {
-            GameObject.DontDestroyOnLoad(_instance);
+            Debug.Log("Routiner Clear");
+
+            if (_instance == null) return;
+            Object.Destroy(_instance.gameObject);
+            _instance = null;
         }
-    }
 
-    public static Coroutine Start(IEnumerator routine)
-    {
-        return instance.StartCoroutine(routine);
-    }
+        private static void DontDestroy()
+        {
+            if (Application.isPlaying)
+            {
+                GameObject.DontDestroyOnLoad(_instance);
+            }
+        }
 
-    public class CoroutineInstance : MonoBehaviour
-    {
+        public static Coroutine Start(IEnumerator routine)
+        {
+            return instance.StartCoroutine(routine);
+        }
 
+        public class CoroutineInstance : MonoBehaviour
+        {
+
+        }
     }
 }

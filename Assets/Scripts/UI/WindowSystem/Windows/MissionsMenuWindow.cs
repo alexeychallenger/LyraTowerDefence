@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace MenuUI
+﻿namespace LTD.UI.WindowSystem.Windows
 {
     public class MissionsMenuWindow : Window
     {
