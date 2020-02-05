@@ -35,7 +35,7 @@ namespace LTD.UI.WindowSystem
 
         public Dictionary<WindowMenu, Window> _windowList;
 
-        private void Awake()
+        public void Init()
         {
             DontDestroyOnLoad(this);
 
