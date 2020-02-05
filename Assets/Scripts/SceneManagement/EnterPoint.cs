@@ -25,6 +25,8 @@ namespace LTD.SceneManagement
 
             //yield return Call(Loader.Opening);
 
+            yield return Call(MenuController.Instance.Init);
+
             yield return Call(MenuController.Instance.StartMenuMenu);
 
             SceneManager.LoadScene("Menu");

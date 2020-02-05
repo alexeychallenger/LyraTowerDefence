@@ -2,16 +2,18 @@
 {
     public class StartMenuWindow : Window
     {
+        public override WindowMenu Name => WindowMenu.StartMenu;
+
         public void Button_OpenMissions()
         {
-            mc.CloseWindow(MenuController.START_MENU_WINDOW);
-            mc.OpenWindow(MenuController.MISSIONS_MENU_WINDOW);
+            mc.CloseWindow(WindowMenu.StartMenu);
+            mc.OpenWindow(WindowMenu.MissionsMenu);
         }
 
         public void Button_OpenSettings()
         {
-            mc.CloseWindow(MenuController.START_MENU_WINDOW);
-            mc.OpenWindow(MenuController.SETTINGS_MENU_WINDOW);
+            mc.CloseWindow(WindowMenu.StartMenu);
+            mc.OpenWindow(WindowMenu.SettingsMenu);
         }
     }
 }
