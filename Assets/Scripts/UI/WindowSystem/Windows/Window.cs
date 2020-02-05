@@ -1,7 +1,8 @@
 ﻿using System.Collections;
+using LTD.Utilities;
 using UnityEngine;
 
-namespace MenuUI
+namespace LTD.UI.WindowSystem.Windows
 {
     public abstract class Window : MonoBehaviour
     {

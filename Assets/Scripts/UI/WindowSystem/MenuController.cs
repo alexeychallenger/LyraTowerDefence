@@ -1,16 +1,21 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using LTD.UI.WindowSystem.Windows;
 using UnityEngine;
 
-namespace MenuUI
+namespace LTD.UI.WindowSystem
 {
+    //public delegate void OnLevelChanged(Level levelContainer);
 
     public class MenuController : MonoBehaviour
     {
+        public static event Action OnLevelChanged;
+
         public const string START_MENU_WINDOW = "StartMenuWindow";
         public const string MISSIONS_MENU_WINDOW = "MissionsMenuWindow";
         public const string SETTINGS_MENU_WINDOW = "SettingsMenuWindow";
         public const string GAME_MENU_WINDOW = "GameMenuWindow";
+
 
         private static MenuController _instance;
         public static MenuController Instance
@@ -25,8 +30,6 @@ namespace MenuUI
             }
         }
 
-        public static event OnLevelChanged onLevelChanged;
-        public delegate void OnLevelChanged(Level levelContainer);
 
         public Dictionary<string, Window> _windowList;
 
