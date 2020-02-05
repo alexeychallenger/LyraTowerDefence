@@ -2,6 +2,8 @@
 {
     public class SettingsMenuWindow : Window
     {
+        public override WindowMenu Name => WindowMenu.SettingsMenu;
+
         public void Button_OpenStartMenu()
         {
             mc.CloseWindow(MenuController.SETTINGS_MENU_WINDOW);

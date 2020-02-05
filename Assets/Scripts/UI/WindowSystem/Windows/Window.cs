@@ -8,7 +8,7 @@ namespace LTD.UI.WindowSystem.Windows
     {
         protected MenuController mc;
 
-        public string Name => gameObject.name;
+        public virtual WindowMenu Name => WindowMenu.Empty;
         public bool IsOpened { get; protected set; }
 
         void Start()

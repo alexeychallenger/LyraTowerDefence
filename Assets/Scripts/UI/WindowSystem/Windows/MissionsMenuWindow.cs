@@ -2,6 +2,8 @@
 {
     public class MissionsMenuWindow : Window
     {
+        public override WindowMenu Name => WindowMenu.MissionsMenu;
+
         public void Button_OpenStartMenu()
         {
             mc.CloseWindow(MenuController.MISSIONS_MENU_WINDOW);

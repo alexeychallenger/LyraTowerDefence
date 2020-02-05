@@ -5,7 +5,15 @@ using UnityEngine;
 
 namespace LTD.UI.WindowSystem
 {
-    //public delegate void OnLevelChanged(Level levelContainer);
+    public enum WindowMenu
+    {
+        Empty,
+        StartMenu,
+        MissionsMenu,
+        SettingsMenu,
+        CreditMenu,
+        GameMenu,
+    }
 
     public class MenuController : MonoBehaviour
     {

@@ -2,5 +2,7 @@
 {
     public class GameMenuWindow : Window
     {
+        public override WindowMenu Name => WindowMenu.GameMenu;
+
     }
 }
