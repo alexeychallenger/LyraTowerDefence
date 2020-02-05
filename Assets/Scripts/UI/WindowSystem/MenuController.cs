@@ -19,12 +19,6 @@ namespace LTD.UI.WindowSystem
     {
         public static event Action OnLevelChanged;
 
-        public const string START_MENU_WINDOW = "StartMenuWindow";
-        public const string MISSIONS_MENU_WINDOW = "MissionsMenuWindow";
-        public const string SETTINGS_MENU_WINDOW = "SettingsMenuWindow";
-        public const string GAME_MENU_WINDOW = "GameMenuWindow";
-
-
         private static MenuController _instance;
         public static MenuController Instance
         {
@@ -39,44 +33,45 @@ namespace LTD.UI.WindowSystem
         }
 
 
-        public Dictionary<string, Window> _windowList;
+        public Dictionary<WindowMenu, Window> _windowList;
 
         private void Awake()
         {
             DontDestroyOnLoad(this);
 
-            _windowList = new Dictionary<string, Window>();
+            _windowList = new Dictionary<WindowMenu, Window>();
             var windows = GetComponentsInChildren<Window>();
             foreach (var window in windows)
             {
                 window.Close(instant: true);
-                _windowList.Add(window.name, window);
+                var windowType = (WindowMenu)Enum.Parse(typeof(WindowMenu), window.name);
+                _windowList.Add(windowType, window);
             }
         }
 
-        public void OpenWindow(string windowName, bool instant = false)
+        public void OpenWindow(WindowMenu window, bool instant = false)
         {
-            _windowList[windowName].Open(instant);
+            _windowList[window].Open(instant);
         }
 
-        public void CloseWindow(string windowName, bool instant = false)
+        public void CloseWindow(WindowMenu window, bool instant = false)
         {
-            _windowList[windowName].Close(instant);
+            _windowList[window].Close(instant);
         }
 
-        public void CloseOtherWindowExcept(string windowName)
+        public void CloseOtherWindowExcept(WindowMenu window)
         {
-            foreach (var window in _windowList)
+            foreach (var w in _windowList)
             {
-                if (window.Key == windowName) continue;
+                if (w.Key == window) continue;
 
-                _windowList[windowName].Close();
+                _windowList[window].Close();
             }
         }
 
         public void StartMenuMenu()
         {
-            OpenWindow(START_MENU_WINDOW);
+            OpenWindow(WindowMenu.StartMenu);
         }
     }
 }

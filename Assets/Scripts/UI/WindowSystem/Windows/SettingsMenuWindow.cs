@@ -6,14 +6,14 @@
 
         public void Button_OpenStartMenu()
         {
-            mc.CloseWindow(MenuController.SETTINGS_MENU_WINDOW);
-            mc.OpenWindow(MenuController.START_MENU_WINDOW);
+            mc.CloseWindow(WindowMenu.SettingsMenu);
+            mc.OpenWindow(WindowMenu.StartMenu);
         }
 
         public void Button_OpenMissions()
         {
-            mc.CloseWindow(MenuController.SETTINGS_MENU_WINDOW);
-            mc.OpenWindow(MenuController.MISSIONS_MENU_WINDOW);
+            mc.CloseWindow(WindowMenu.SettingsMenu);
+            mc.OpenWindow(WindowMenu.MissionsMenu);
         }
     }
 }
