@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using LTD.Map;
 
 namespace LTD.PathFindingSystem
 {
