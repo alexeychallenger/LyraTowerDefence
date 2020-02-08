@@ -34,10 +34,6 @@ namespace LTD.Map
             _map = new float[_width, _height];
 
             SetupMap(mapItems);
-
-
-
-
         }
 
         private void SetupMap(MapItem[] mapItems)
