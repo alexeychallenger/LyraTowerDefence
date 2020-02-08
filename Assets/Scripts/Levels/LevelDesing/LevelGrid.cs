@@ -12,7 +12,7 @@ namespace LTD.Map.LevelDesing
 
         private void OnDrawGizmos()
         {
-            var level = GetComponent<Level>();
+            var level = FindObjectOfType<Level>();
 
             DrawGrid(level);
             DrawCoord(level);
