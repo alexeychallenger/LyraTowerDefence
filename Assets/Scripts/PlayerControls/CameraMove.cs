@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using LTD.Map.LevelDesing;
+using UnityEngine.EventSystems;
 
 namespace LTD.PlayerControls
 {
@@ -41,6 +42,8 @@ namespace LTD.PlayerControls
 
         private void MovementHandler()
         {
+            if (EventSystem.current.IsPointerOverGameObject()) return;
+
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             GameObject collider;
             RaycastHit hit;
