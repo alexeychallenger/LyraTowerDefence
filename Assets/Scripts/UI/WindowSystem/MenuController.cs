@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using LTD.UI.WindowSystem.Windows;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using LTD.Map.LevelDesing;
 
 namespace LTD.UI.WindowSystem
 {
@@ -17,8 +19,6 @@ namespace LTD.UI.WindowSystem
 
     public class MenuController : MonoBehaviour
     {
-        public static event Action OnLevelChanged;
-
         private static MenuController _instance;
         public static MenuController Instance
         {
@@ -39,6 +39,8 @@ namespace LTD.UI.WindowSystem
         {
             DontDestroyOnLoad(this);
 
+            SceneManager.sceneLoaded += OnSceneLoaded;
+
             _windowList = new Dictionary<WindowMenu, Window>();
             var windows = GetComponentsInChildren<Window>();
             foreach (var window in windows)
@@ -47,6 +49,11 @@ namespace LTD.UI.WindowSystem
                 var windowType = (WindowMenu)Enum.Parse(typeof(WindowMenu), window.name);
                 _windowList.Add(windowType, window);
             }
+        }
+
+        private void OnDestroy()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
         public void OpenWindow(WindowMenu window, bool instant = false)
@@ -72,6 +79,20 @@ namespace LTD.UI.WindowSystem
         public void StartMenuMenu()
         {
             OpenWindow(WindowMenu.StartMenu);
+        }
+
+        public void LoadLevel(string level)
+        {
+            SceneManager.LoadScene(level);
+        }
+        
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        {
+            var level = FindObjectOfType<Level>();
+            if (level != null)
+            {
+                level.Init();
+            }
         }
     }
 }

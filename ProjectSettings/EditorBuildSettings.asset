@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SystemScenes/EnterPoint.unity
-    guid: 08897e8c835d595488bf713b657162ad
+    path: Assets/Scenes/EnterPoint.unity
+    guid: 84e44932d1eae00448f736896ad71fc4
   - enabled: 1
-    path: Assets/Scenes/SystemScenes/Loading.unity
-    guid: 904b6fab3780ff54ca353bd791048194
+    path: Assets/Scenes/Menu.unity
+    guid: 1bf2d79bacf105f4d85645f065be0bd9
   - enabled: 1
-    path: Assets/Scenes/SystemScenes/MainMenu.unity
-    guid: cc057f8538414c944acbb0d0375346c0
+    path: Assets/Scenes/Level1.unity
+    guid: 4c6deee1cffd2f04c99766d4bed3f5ea
   m_configObjects: {}

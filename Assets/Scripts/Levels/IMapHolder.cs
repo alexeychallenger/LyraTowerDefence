@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LTD.PathFindingSystem
+namespace LTD.Map
 {
     public interface IMapHolder
     {

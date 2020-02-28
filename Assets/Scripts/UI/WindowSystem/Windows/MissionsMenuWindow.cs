@@ -15,5 +15,11 @@
             mc.CloseWindow(WindowMenu.MissionsMenu);
             mc.OpenWindow(WindowMenu.SettingsMenu);
         }
+
+        public void Button_OpenGame()
+        {
+            mc.CloseWindow(WindowMenu.MissionsMenu);
+            mc.LoadLevel("Level1");
+        }
     }
 }
