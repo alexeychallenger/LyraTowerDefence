@@ -4,16 +4,10 @@
     {
         public override WindowMenu Name => WindowMenu.SettingsMenu;
 
-        public void Button_OpenStartMenu()
+        public void Button_BackToStartMenu()
         {
             mc.CloseWindow(WindowMenu.SettingsMenu);
             mc.OpenWindow(WindowMenu.StartMenu);
-        }
-
-        public void Button_OpenMissions()
-        {
-            mc.CloseWindow(WindowMenu.SettingsMenu);
-            mc.OpenWindow(WindowMenu.MissionsMenu);
         }
     }
 }

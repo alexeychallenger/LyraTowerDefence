@@ -19,6 +19,8 @@ namespace LTD.Map.LevelDesing
         [SerializeField] public int ySize;
         [SerializeField] public int yOffset;
 
+        private GameObject buildingContainer;
+
 
         IMapHolder map;
 
@@ -34,6 +36,9 @@ namespace LTD.Map.LevelDesing
             MenuController.Instance.OpenWindow(WindowMenu.GameMenu);
 
             PlayerControl.Instance.SetPause(false);
+
+            buildingContainer = new GameObject("Buildings");
+            buildingContainer.transform.SetParent(transform.parent);
         }
 
         public void OnDestroy()
@@ -53,22 +58,37 @@ namespace LTD.Map.LevelDesing
             return new Vector2Int(x, y);
         }
 
-        public void SelectTile(Vector3 selectPoint)
+        public Vector3 TransformToVector3(Vector2Int pos)
         {
-            SelectTile(TransformToVector2Int(selectPoint));
+            var x = (pos.x + xOffset) * cellSize;
+            var y = (pos.y + yOffset) * cellSize;
+
+            return new Vector3(x, y, 0);
         }
 
-        public void SelectTile(Vector2Int selectedTile)
+        public Vector2Int? SelectTile(Vector3 selectPoint)
         {
-            if (selectedTile.x < 0 || 
+            var selectedTile = TransformToVector2Int(selectPoint);
+
+            if (selectedTile.x < 0 ||
                 selectedTile.y < 0 ||
                 selectedTile.x >= xSize ||
                 selectedTile.y >= ySize)
             {
-                return;
+                return null;
             }
 
-            Debug.Log($"Тык на {selectedTile.ToString()}");
+            Debug.Log($"Тык на {selectPoint.ToString()} | {selectedTile.ToString()}");
+            return selectedTile;
+        }
+
+        public void PlaceBuilding(GameObject obj, Vector2Int tile)
+        {
+            Debug.Log($"Билжу {obj.name} на {tile.ToString()}");
+            var building = Instantiate(obj, buildingContainer.transform);
+            building.transform.position = TransformToVector3(tile) + new Vector3(cellSize / 2f, cellSize / 2f, 0);
+
+            map[tile] = 1f;
         }
     }
 }

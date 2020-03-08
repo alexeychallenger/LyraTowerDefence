@@ -4,10 +4,10 @@
     {
         public override WindowMenu Name => WindowMenu.StartMenu;
 
-        public void Button_OpenMissions()
+        public void Button_OpenGameModes()
         {
             mc.CloseWindow(WindowMenu.StartMenu);
-            mc.OpenWindow(WindowMenu.MissionsMenu);
+            mc.OpenWindow(WindowMenu.GameModesMenu);
         }
 
         public void Button_OpenSettings()
