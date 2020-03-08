@@ -66,5 +66,14 @@ namespace LTD.UI.WindowSystem.Windows
                 MainPageTower.SetActive(true);
             }
         }
+
+        public void Button_BuildTower(string key)
+        {
+            PlayerControls.PlayerControl.Instance.StartBuilding(key);
+        }
+        public void Button_BuyUpgrade(string key)
+        {
+
+        }
     }
 }

@@ -6,6 +6,9 @@ namespace LTD.PlayerControls
 {
     public class CameraMove : MonoBehaviour
     {
+        public delegate void OnLevelClickDelegate(Vector2Int position);
+        public OnLevelClickDelegate OnLevelClick;
+
         private const float PANNING_WIDTH = 0.96f;
         private Camera currentCamera;
         private bool isActive = false;
@@ -55,7 +58,11 @@ namespace LTD.PlayerControls
                 if (Input.GetMouseButtonDown(0))
                 {
                     Debug.DrawLine(transform.position, hit.point);
-                    Level.Instance.SelectTile(hit.point);
+                    var tile = Level.Instance.SelectTile(hit.point);
+                    if (tile != null)
+                    {
+                        OnLevelClick.Invoke((Vector2Int)tile);
+                    }
                 }
 
 

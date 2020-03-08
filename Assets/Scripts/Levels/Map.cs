@@ -5,9 +5,8 @@ namespace LTD.Map
 {
     public class Map : IMapHolder
     {
-        public float this[Vector2Int v] => _map[v.x, v.y];
-
-        public float this[int x, int y] => _map[x, y];
+        public float this[Vector2Int v] { get => _map[v.x, v.y];    set => _map[v.x, v.y] = value; }
+        public float this[int x, int y] { get => _map[x, y];        set => _map[x, y] = value; }
 
         public int _width;
         public int Width => _width;

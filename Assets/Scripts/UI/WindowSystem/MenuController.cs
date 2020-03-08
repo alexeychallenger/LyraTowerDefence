@@ -11,7 +11,9 @@ namespace LTD.UI.WindowSystem
     {
         Empty,
         StartMenu,
-        MissionsMenu,
+        StoryModeMenu,
+        GameModesMenu,
+        EndlessModeMenu,
         SettingsMenu,
         CreditMenu,
         GameMenu,

@@ -4,8 +4,8 @@ namespace LTD.Map
 {
     public interface IMapHolder
     {
-        float this[int x, int y] { get; }
-        float this[Vector2Int v] { get; }
+        float this[int x, int y] { get; set; }
+        float this[Vector2Int v] { get; set; }
 
         int Width { get; }
         int Height { get; }
