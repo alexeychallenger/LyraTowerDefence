@@ -1,0 +1,41 @@
+
+function init()
+	print("Test level is loaded");
+	coroutine.yield(10);
+	print("10 frames");
+	
+	ShowDialog1("pokerface", "hello my old friend", "fuckyou");
+	coroutine.yield("dialog");
+	
+	ShowDialog2("badpokerface", "why", "cause you are shiiiiit", "im sorry");
+	coroutine.yield("dialog");
+	
+	answer = GetStringVariable("answer");
+	print("dialog success " .. answer);
+	
+	if answer == "right" then
+		ShowDialog1("happy", "its ok", ":3");
+		coroutine.yield("dialog");
+	else 
+		ShowDialog("rage", "wtf man");
+		coroutine.yield(120);
+		ShowDialog("rage", "why are you gay");
+		coroutine.yield(60);
+		ShowDialog("rage", "You motherfucker, come on you little ass… ");
+		coroutine.yield(50);
+		ShowDialog("rage", "You motherfucker, come on you little ass… fuck with me, eh? You fucking little asshole, dickhead cocksucker…");
+		coroutine.yield(40);
+		ShowDialog("rage", "You motherfucker, come on you little ass… fuck with me, eh? You fucking little asshole, dickhead cocksucker…You fuckin' come on, come fuck with me! I'll get your ass, you jerk! ");
+		coroutine.yield(30);
+		ShowDialog("rage", "You motherfucker, come on you little ass… fuck with me, eh? You fucking little asshole, dickhead cocksucker…You fuckin' come on, come fuck with me! I'll get your ass, you jerk! Oh, you fuckhead motherfucker! ");
+		coroutine.yield(20);
+		ShowDialog("rage", "You motherfucker, come on you little ass… fuck with me, eh? You fucking little asshole, dickhead cocksucker…You fuckin' come on, come fuck with me! I'll get your ass, you jerk! Oh, you fuckhead motherfucker! Fuck all you and your family! ");
+		coroutine.yield(20);
+		ShowDialog("rage", "You motherfucker, come on you little ass… fuck with me, eh? You fucking little asshole, dickhead cocksucker…You fuckin' come on, come fuck with me! I'll get your ass, you jerk! Oh, you fuckhead motherfucker! Fuck all you and your family! Come on, you cocksucker, slime bucket, shitface turdball!");
+		coroutine.yield(40);
+		ShowDialog("pokerface", "...", "...");
+		coroutine.yield(180);
+		HideDialog();
+	end
+	
+end

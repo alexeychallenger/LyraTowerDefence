@@ -1824,8 +1824,8 @@ Transform:
   - {fileID: 8392856914930474801}
   - {fileID: 2000084971}
   - {fileID: 1422705688}
-  - {fileID: 814062833}
   - {fileID: 8308372405299514918}
+  - {fileID: 814062833}
   m_Father: {fileID: 1654140677}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -2042,6 +2042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b615a37a23e6d234d8c28ab7c7b094c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelName: TestLevel
   cellSize: 20
   xSize: 10
   xOffset: -5

@@ -5,6 +5,7 @@ using LTD.Map;
 using LTD.UI.WindowSystem;
 using LTD.PathFindingSystem;
 using LTD.PlayerControls;
+using LTD.Lua;
 
 namespace LTD.Map.LevelDesing
 {
@@ -12,17 +13,18 @@ namespace LTD.Map.LevelDesing
     {
         public static Level Instance;
 
-        [SerializeField] public float cellSize = 1f;
+        [SerializeField] public string levelName;
 
+        [Header("Grid settings")]
+        [SerializeField] public float cellSize = 1f;
         [SerializeField] public int xSize;
         [SerializeField] public int xOffset;
         [SerializeField] public int ySize;
         [SerializeField] public int yOffset;
 
         private GameObject buildingContainer;
-
-
-        IMapHolder map;
+        private LuaResponder lua;
+        private IMapHolder map;
 
         public void Init()
         {
@@ -31,7 +33,7 @@ namespace LTD.Map.LevelDesing
             map = new Map(xSize, ySize, FindObjectsOfType<MapItem>());
             PathFinding.LoadMap(map);
 
-            Debug.Log("Level is Loaded");
+            Debug.Log($"Level [{levelName}] is loaded");
 
             MenuController.Instance.OpenWindow(WindowMenu.GameMenu);
 
@@ -39,6 +41,10 @@ namespace LTD.Map.LevelDesing
 
             buildingContainer = new GameObject("Buildings");
             buildingContainer.transform.SetParent(transform.parent);
+
+            lua = new LuaResponder();
+            lua.LoadScript(levelName);
+            lua.CallCoroutine("init");
         }
 
         public void OnDestroy()
